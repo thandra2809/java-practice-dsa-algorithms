@@ -1,10 +1,9 @@
 package org.dsa.practice.arrays;
 
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
-public class RotateArray {
+public class ReverseArray {
 
     public static int[] rotate(int[] arr, int k) {
 
@@ -22,12 +21,15 @@ public class RotateArray {
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> arr1 = new ArrayList<>();
+
         int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+
+        System.out.println("Original Array:: " +Arrays.toString(arr));
 
         int[] newArray = rotate(arr, arr.length);
 
-        System.out.println(Arrays.toString(newArray));
+
+        System.out.println("Reversed Array" + Arrays.toString(newArray));
 
     }
 }
