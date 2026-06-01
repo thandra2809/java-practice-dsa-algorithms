@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MergeInterval {
+public class MergeInterval56 {
     static void main() {
         int[][] arr = new int[][]{{1,3},{2,6},{8,10},{15,18}};
 
