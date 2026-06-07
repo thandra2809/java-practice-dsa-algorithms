@@ -4,40 +4,43 @@ import org.dsa.graphs.practice.nodes.Node;
 
 import java.util.*;
 
-public class BreadthFirstSearchOfGraph {
+public class DepthFirstSearchIterativeOfGraph {
+
     static void main() {
 
         Node node1 = buildGraph();
         printGraph(node1);
 
-        List<Integer> bfsOrder = doBreadthFirstSearch(node1);
+        List<Node> bfsOrder = doDepthFirstSearchIterative(node1);
 
-       //  printGraph(bfsOrder);
+        // System.out.println(bfsOrder);
+        printGraph(bfsOrder.getFirst());
     }
 
-    private static List<Integer> doBreadthFirstSearch(Node startNode) {
-        List<Integer> result = new ArrayList<>();
+    private static List<Node> doDepthFirstSearchIterative(Node startNode) {
+        List<Node> result = new ArrayList<>();
         if (startNode == null) return result;
 
-        Queue<Node> queue = new LinkedList<>();
+        Stack<Node> stack = new Stack<>();
         Set<Integer> visited = new HashSet<>();
 
-        queue.offer(startNode);
+        stack.push(startNode);
         visited.add(startNode.val);
 
-        while (!queue.isEmpty()) {
-            Node node = queue.poll();
-            result.add(node.val);
+        while (!stack.isEmpty()) {
+            Node node = stack.pop();
+            result.add(node);
             for (Node neighbor : node.neighbors) {
                 if (!visited.contains(neighbor.val)) {
                     visited.add(neighbor.val);
-                    queue.offer(neighbor);
+                    stack.push(neighbor);
                 }
             }
         }
 
         return result;
     }
+
 
 
     static Node buildGraph() {
@@ -105,7 +108,7 @@ public class BreadthFirstSearchOfGraph {
 
         q.offer(start);
         seen.add(start.val);
-        System.out.println("Graph:");
+        // System.out.println("Graph:");
 
         while (!q.isEmpty()) {
             Node curr = q.poll();

@@ -8,12 +8,18 @@ public class BuildGraphFromEdgesArray {
     static void main() {
         int[][] edges = {{1,2},{1,3},{2,4},{2,5},{3,5}};
 
-        Map<Integer, Node> graph = buildGraph(edges);
-
+        Map<Integer, Node> graph = buildBiDirectionalGraph(edges);
         printGraph(graph.get(1));
+
+        System.out.println("*************************************************");
+
+        Map<Integer, Node> graph2 = buildSingleDirectionalGraph(edges);
+        printGraph(graph2.get(1));
+
+
     }
 
-    static Map<Integer, Node> buildGraph(int[][] edges) {
+    static Map<Integer, Node> buildBiDirectionalGraph(int[][] edges) {
         Map<Integer, Node> map = new HashMap<>();
 
         for (int[] edge : edges) {
@@ -26,6 +32,21 @@ public class BuildGraphFromEdgesArray {
             // Add undirected edge
             map.get(a).neighbors.add(map.get(b));
             map.get(b).neighbors.add(map.get(a));
+        }
+        return map;
+    }
+
+    static Map<Integer, Node> buildSingleDirectionalGraph(int[][] edges) {
+        Map<Integer, Node> map = new HashMap<>();
+
+        for (int[] edge : edges) {
+            int a = edge[0], b = edge[1];
+
+            map.putIfAbsent(a, new Node(a));
+            map.putIfAbsent(b, new Node(b));
+
+            // directed: only a → b
+            map.get(a).neighbors.add(map.get(b));
         }
         return map;
     }

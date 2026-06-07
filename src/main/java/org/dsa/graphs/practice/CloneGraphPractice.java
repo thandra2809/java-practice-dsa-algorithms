@@ -23,13 +23,12 @@ public class CloneGraphPractice {
 */
 
 
-        int[][] edgesBFS =  {{1,2},{2,3},{3,4},{4,1}};
+        int[][] edgesBFS = {{1, 2}, {2, 3}, {3, 4}, {4, 1}};
         Map<Integer, Node> mapBFS = buildGraph(edgesBFS);
 
         Node testBFS = mapBFS.getOrDefault(1, null);
         Node clonedBFS = cloneGraphBFS(testBFS);
-        System.out.println(clonedBFS);
-
+        printGraph(clonedBFS);
 
 
     }
