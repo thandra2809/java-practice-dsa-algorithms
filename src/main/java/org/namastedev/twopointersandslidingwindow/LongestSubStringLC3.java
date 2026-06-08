@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class LongestSubStringLC3 {
     static void main() {
 
-        String s = "abcabcbb";
+        String s = "pwwkew";
 
         HashMap<Character, Integer> map = new HashMap<>(); // char -> last seen index
         int max = 0;
