@@ -15,7 +15,7 @@ public class TopKFrequent {
         // Step 2: min-heap ordered by frequency (smallest freq at top)
         // so we keep only the top k frequent elements
         PriorityQueue<Integer> minHeap = new PriorityQueue<>(
-            (a, b) -> freqMap.get(a) - freqMap.get(b)
+                Comparator.comparingInt(freqMap::get)
         );
 
         // Step 3: push each element into heap, evict if size exceeds k
