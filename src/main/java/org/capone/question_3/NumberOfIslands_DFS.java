@@ -20,7 +20,7 @@ public class NumberOfIslands_DFS {
         int numberOfIslands = 0;
 
         int rows = grid.length;
-        int columns = grid[0].length-1;
+        int columns = grid[0].length;
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
